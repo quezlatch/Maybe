@@ -95,7 +95,8 @@ namespace Hazzik.Maybe.Tests
         {
             Maybe<Person> person = null;
 
-            Assert.DoesNotThrow(() => person.GetHashCode());
+			var ex = Record.Exception(() => person.GetHashCode());
+			Assert.Null(ex);
         }
 
         [Fact]
