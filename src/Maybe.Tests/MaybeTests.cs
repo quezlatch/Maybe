@@ -48,7 +48,7 @@ namespace Hazzik.Maybe.Tests
             Maybe<Person> person = null;
 
             var name = from p in person
-                from n in p.Name
+				from n in p.Name.ToMaybe()
                 select n.Length;
 
             Assert.True(name == Maybe<int>.Nothing);
@@ -60,7 +60,7 @@ namespace Hazzik.Maybe.Tests
             Maybe<Person> person = null;
 
             var name = from p in person
-                select p.Name
+                select p.Name.ToMaybe()
                 into n
                 from a in n
                 select a.Length;
